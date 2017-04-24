@@ -15,10 +15,6 @@
    cd OpenWrt-SDK-15.05.1-ar71xx-nand_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64
 
    git clone https://github.com/asiacny/n2n-openwrt package/n2n_v2 # 获取 Makefile（禁用加密和压缩）
-   
-   #git clone https://github.com/asiacny/n2n-openwrt package/n2n_v2 &&cd package/n2n_v2 && git checkout c17ab343b29b4373ba9b77e49008740e55715caf &&cd ../.. # 获取 Makefile（禁用压缩）
-   
-   #git clone https://github.com/asiacny/n2n-openwrt package/n2n_v2 &&cd package/n2n_v2 && git checkout f691a832cf3b152c67fbd897eb6117b348dae384 &&cd ../.. # 获取 Makefile（官方默认，启用加密和压缩）
 
    make menuconfig # 选择要编译的包 Network -> VPN -> n2n_v2
 
