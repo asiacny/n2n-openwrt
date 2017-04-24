@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 #PKG_BRANCH:=trunk
 PKG_SOURCE_URL:=https://github.com/asiacny/n2n_v2.git
-PKG_SOURCE_VERSION:=342667094e1b8d94f0c42631d122cefe46446c59
+PKG_SOURCE_VERSION:=8ac69726121831dedd0d8c7bad9b0829a13760e7
 #PKG_REV:=5633
 
 PKG_NAME:=n2n
