@@ -7,18 +7,19 @@
 
 include $(TOPDIR)/rules.mk
 
-#PKG_BRANCH:=trunk
-PKG_SOURCE_URL:=git@github.com:asiacny/n2n_v2.git
-PKG_SOURCE_VERSION:=6a2333f62c02b72fcd4809cd4bd73014dfe989dd
-#PKG_REV:=5633
+PKG_SOURCE_URL:=https://github.com/asiacny/n2n_v2
+PKG_SOURCE_VERSION:=6a2333f
+
 
 PKG_NAME:=n2n_v2
 PKG_RELEASE:=1
-
+PKG_VERSION:=2.1_git$(PKG_SOURCE_VERSION)
 PKG_SOURCE_PROTO:=git
-
+PKG_LICENSE:=GPLv3
+PKG_LICENSE_FILES:=LICENSE
 PKG_BUILD_DEPENDS:=libopenssl
-
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
+PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 include $(INCLUDE_DIR)/package.mk
 
 define Package/n2n_v2
