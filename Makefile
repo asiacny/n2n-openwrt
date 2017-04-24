@@ -25,46 +25,27 @@ PKG_BUILD_DEPENDS:=libopenssl
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/n2n
+define Package/n2n_v2
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=VPN tunneling daemon
-  URL:=http://www.ntop.org/n2n/
+  TITLE:=VPN tunneling daemon(v2)
+  URL:=http://www.ntop.org/n2n/n2n_v2
   SUBMENU:=VPN
-  DEPENDS:=+libpthread +kmod-tun
+  DEPENDS:=+libpthread +kmod-tun +libopenssl
 endef
 
-define Package/n2n_v2
-$(call Package/n2n)
-  TITLE+= (v2)
-  DEPENDS+= +libopenssl
-endef
 
 define Build/Compile
-	$(MAKE) -C "$(PKG_BUILD_DIR)/n2n_v1" \
-		$(TARGET_CONFIGURE_OPTS) \
-		CFLAGS="$(TARGET_CFLAGS)" \
-		INSTALL_PROG=":"
-	$(MAKE) -C "$(PKG_BUILD_DIR)/n2n_v2" \
+	$(MAKE) -C "$(PKG_BUILD_DIR)" \
 		$(TARGET_CONFIGURE_OPTS) \
 		CFLAGS="$(TARGET_CFLAGS) $(TARGET_LDFLAGS)" \
 		INSTALL_PROG=":"
 endef
 
-define Package/n2n/install
-	$(INSTALL_DIR) $(1)/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/n2n_v1/edge $(1)/sbin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/n2n_v1/supernode $(1)/sbin/
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DATA) ./files/n2n_v1.config $(1)/etc/config/n2n
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/n2n_v1.init $(1)/etc/init.d/n2n
-endef
-
 define Package/n2n_v2/install
 	$(INSTALL_DIR) $(1)/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/n2n_v2/edge $(1)/sbin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/n2n_v2/supernode $(1)/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/edge $(1)/sbin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/supernode $(1)/sbin/
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DATA) ./files/n2n_v2.config $(1)/etc/config/n2n
 	$(INSTALL_DIR) $(1)/etc/init.d
@@ -75,5 +56,4 @@ define Package/n2n/conffiles
 /etc/config/n2n
 endef
 
-$(eval $(call BuildPackage,n2n))
 $(eval $(call BuildPackage,n2n_v2))
