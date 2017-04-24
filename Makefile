@@ -8,18 +8,14 @@
 include $(TOPDIR)/rules.mk
 
 #PKG_BRANCH:=trunk
-PKG_SOURCE_URL:=https://github.com/asiacny/n2n_v2.git
+PKG_SOURCE_URL:=git://github.com/asiacny/n2n_v2.git
 PKG_SOURCE_VERSION:=6a2333f62c02b72fcd4809cd4bd73014dfe989dd
 #PKG_REV:=5633
 
-PKG_NAME:=n2n
-PKG_VERSION:=$(PKG_REV)
+PKG_NAME:=n2n_v2
 PKG_RELEASE:=1
 
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE:=$(PKG_SOURCE_SUBDIR).tar.gz
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=$(PKG_REV)
 
 PKG_BUILD_DEPENDS:=libopenssl
 
