@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2007-2012 OpenWrt.org
+# Copyright (C) 2007-2018 OpenWrt.org
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
@@ -7,13 +7,13 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_SOURCE_URL:=https://github.com/asiacny/n2n_v2
-PKG_SOURCE_VERSION:=6a2333f
+PKG_SOURCE_URL:=https://github.com/ntop/n2n.git
+PKG_SOURCE_VERSION:=25563f3
 
 
 PKG_NAME:=n2n_v2
 PKG_RELEASE:=1
-PKG_VERSION:=2.1_git$(PKG_SOURCE_VERSION)
+PKG_VERSION:=2.4_git$(PKG_SOURCE_VERSION)
 PKG_SOURCE_PROTO:=git
 PKG_LICENSE:=GPLv3
 PKG_LICENSE_FILES:=LICENSE
